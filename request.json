@@ -1,0 +1,250 @@
+[
+    {
+      "name": "1. 기본 GET 요청",
+      "url": "https://jsonplaceholder.typicode.com/posts/1",
+      "method": "GET"
+    },
+    {
+      "name": "2. GET 요청 + 쿼리 파라미터",
+      "url": "https://jsonplaceholder.typicode.com/posts",
+      "method": "GET",
+      "params": {
+        "userId": "1",
+        "_limit": "3"
+      }
+    },
+    {
+      "name": "3. GET 요청 + 커스텀 헤더",
+      "url": "https://jsonplaceholder.typicode.com/posts/1",
+      "method": "GET",
+      "headers": {
+        "User-Agent": "MyRustCLI/1.0",
+        "Accept": "application/json",
+        "X-Custom-Header": "TestValue"
+      }
+    },
+    {
+      "name": "4. POST 요청 + JSON Body",
+      "url": "https://jsonplaceholder.typicode.com/posts",
+      "method": "POST",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "title": "새로운 포스트",
+        "body": "이것은 테스트 내용입니다",
+        "userId": 1
+      }
+    },
+    {
+      "name": "5. POST 요청 + 복잡한 JSON Body",
+      "url": "https://jsonplaceholder.typicode.com/posts",
+      "method": "POST",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer fake-token-12345"
+      },
+      "body": {
+        "title": "복잡한 데이터",
+        "userId": 2,
+        "metadata": {
+          "tags": ["rust", "http", "cli"],
+          "priority": "high",
+          "nested": {
+            "level": 2,
+            "data": "deep value"
+          }
+        },
+        "isPublished": true,
+        "viewCount": 0
+      }
+    },
+    {
+      "name": "6. PUT 요청 (업데이트)",
+      "url": "https://jsonplaceholder.typicode.com/posts/1",
+      "method": "PUT",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "id": 1,
+        "title": "수정된 제목",
+        "body": "수정된 내용",
+        "userId": 1
+      }
+    },
+    {
+      "name": "7. DELETE 요청",
+      "url": "https://jsonplaceholder.typicode.com/posts/1",
+      "method": "DELETE",
+      "headers": {
+        "Authorization": "Bearer test-token"
+      }
+    },
+    {
+      "name": "8. GET 요청 + 여러 쿼리 파라미터",
+      "url": "https://jsonplaceholder.typicode.com/comments",
+      "method": "GET",
+      "params": {
+        "postId": "1",
+        "_limit": "5",
+        "_sort": "email",
+        "_order": "desc"
+      }
+    },
+    {
+      "name": "9. POST 요청 + 배열 Body",
+      "url": "https://jsonplaceholder.typicode.com/posts",
+      "method": "POST",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "title": "배열 데이터 테스트",
+        "items": [
+          {"id": 1, "name": "Item 1"},
+          {"id": 2, "name": "Item 2"},
+          {"id": 3, "name": "Item 3"}
+        ],
+        "categories": ["tech", "programming", "rust"]
+      }
+    },
+    {
+      "name": "10. GET 요청 - HTTP Bin Echo",
+      "url": "https://httpbin.org/get",
+      "method": "GET",
+      "headers": {
+        "X-Test-Header": "HeaderValue",
+        "Accept-Language": "ko-KR"
+      },
+      "params": {
+        "param1": "value1",
+        "param2": "value2"
+      }
+    },
+    {
+      "name": "11. POST 요청 - HTTP Bin Echo",
+      "url": "https://httpbin.org/post",
+      "method": "POST",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "test-api-key-12345"
+      },
+      "body": {
+        "username": "testuser",
+        "email": "test@example.com",
+        "settings": {
+          "theme": "dark",
+          "notifications": true
+        }
+      }
+    },
+    {
+      "name": "12. PUT 요청 - HTTP Bin",
+      "url": "https://httpbin.org/put",
+      "method": "PUT",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "id": "123",
+        "status": "updated"
+      }
+    },
+    {
+      "name": "13. DELETE 요청 - HTTP Bin",
+      "url": "https://httpbin.org/delete",
+      "method": "DELETE",
+      "params": {
+        "id": "456"
+      }
+    },
+    {
+      "name": "14. 이름 없는 요청 테스트",
+      "url": "https://jsonplaceholder.typicode.com/users/1",
+      "method": "GET"
+    },
+    {
+      "name": "15. PATCH 요청 테스트",
+      "url": "https://jsonplaceholder.typicode.com/posts/1",
+      "method": "PATCH",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "title": "부분 수정된 제목"
+      }
+    },
+    {
+      "name": "16. PATCH 요청 - HTTP Bin",
+      "url": "https://httpbin.org/patch",
+      "method": "PATCH",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "field": "partially updated"
+      }
+    },
+    {
+      "name": "17. 모든 기능 종합 테스트",
+      "url": "https://httpbin.org/anything",
+      "method": "POST",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer comprehensive-test-token",
+        "X-Request-ID": "req-12345",
+        "Accept": "application/json"
+      },
+      "params": {
+        "test": "true",
+        "version": "1.0",
+        "debug": "enabled"
+      },
+      "body": {
+        "message": "모든 기능 테스트",
+        "timestamp": "2025-10-17T12:00:00Z",
+        "data": {
+          "numbers": [1, 2, 3, 4, 5],
+          "strings": ["a", "b", "c"],
+          "boolean": true,
+          "null_value": null,
+          "nested": {
+            "level1": {
+              "level2": {
+                "level3": "deep value"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "18. POST 요청 - Form Data",
+      "url": "https://httpbin.org/post",
+      "method": "POST",
+      "form": {
+        "username": "testuser",
+        "email": "test@example.com",
+        "status": "active"
+      }
+    },
+    {
+      "name": "19. GET 요청 - 환경 변수 사용",
+      "url": "https://{{TEST_HOST}}/get",
+      "method": "GET",
+      "headers": {
+        "Authorization": "Bearer {{AUTH_TOKEN}}",
+        "X-Custom-Header": "{{CUSTOM_HEADER_VALUE}}"
+      }
+    },
+    {
+        "name": "20. GET 요청 - 환경 변수 사용",
+        "url": "https://{{TEST_HO}}/get",
+        "method": "GET",
+        "headers": {
+          "Authorization": "Bearer {{AUTH_TOKEN}}",
+          "X-Custom-Header": "{{CUSTOM_HEADER_VALUE}}"
+        }
+      }
+  ]
